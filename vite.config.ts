@@ -4,18 +4,13 @@ import path from 'path';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [
-    react(),
-    dts({
-      outDir: 'dist',
-      insertTypesEntry: true
-  })],
+  plugins: [react(), dts()],
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'react-page-tracker',
-      formats: ['es', 'cjs', 'umd'],
-      fileName: (format) => `index.${format}.js`,
+      formats: ['es'],
+      fileName: (format) => `index.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom'],

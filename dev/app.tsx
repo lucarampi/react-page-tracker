@@ -1,4 +1,4 @@
-import { MyComponent } from '../src';
+import { MyComponent } from '../dist/index.min';
 
 export default function App() {
   return (
