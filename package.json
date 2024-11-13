@@ -12,7 +12,7 @@
     "react",
     "page-tracker",
     "hooks",
-    "back-and-next button"
+    "track browser's back-and-forward buttons"
   ],
   "author": "Hsuan Yi, Chou",
   "license": "MIT",

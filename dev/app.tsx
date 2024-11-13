@@ -1,9 +1,9 @@
-import { MyComponent } from '../dist/index.min';
+import { PageTracker } from '../src';
 
 export default function App() {
   return (
-    <div>
-      <MyComponent text="hello" />
-    </div>
+    <PageTracker initialData={{ myVar: 1 }}>
+      <div>hello</div>
+    </PageTracker>
   );
 }
