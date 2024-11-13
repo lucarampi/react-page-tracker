@@ -1,16 +1,20 @@
 import React from 'react';
-import { demoRoute } from '../router';
-import { usePageTrackerStore } from '../../src';
+import { createRoute } from '@tanstack/react-router';
+import rootRoute from './root-route';
+import PageTrackerValue from '../components/page-tracker-value';
 
-const Demo = () => {
-  const { demoId } = demoRoute.useParams();
-  const state = usePageTrackerStore((state) => state);
-  return (
-    <div>
-      <h3>demo: {demoId}</h3>
-      <div>{JSON.stringify(state)}</div>
-    </div>
-  );
-};
+export const demoRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/$demoId',
+  component: function Demo() {
+    const { demoId } = demoRoute.useParams();
+    return (
+      <div>
+        <h3 className="mb-3 text-2xl">current page: {demoId}</h3>
+        <PageTrackerValue />
+      </div>
+    );
+  },
+});
 
-export default Demo;
+export default demoRoute;

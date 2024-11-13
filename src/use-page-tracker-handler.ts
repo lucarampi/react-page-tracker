@@ -102,4 +102,5 @@ const initHistoryState = (initialData: Record<string, unknown> | undefined) => {
   } else {
     history.replaceState(defaultData, '');
   }
+  pageTrackerStore.setState(defaultData.__REACT_PAGE_TRACKER_INTERNAL__);
 };
