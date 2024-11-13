@@ -21,8 +21,8 @@ export const usePageTrackerHandler = ({ initialData }: Pick<PageTrackerProps, 'i
     const handlePopState = (event: PopStateEvent) => {
       const state = event.state as HistoryCustomState;
       const statePageIndex = state.__REACT_PAGE_TRACKER_INTERNAL__?.pageIndex ?? 0;
-      const pageEvent = pageIndex.current > statePageIndex ? 'back' : 'next';
-      if (pageEvent === 'next') {
+      const pageEvent = pageIndex.current > statePageIndex ? 'back' : 'forward';
+      if (pageEvent === 'forward') {
         pageIndex.current++;
       } else {
         pageIndex.current = statePageIndex ?? 0;

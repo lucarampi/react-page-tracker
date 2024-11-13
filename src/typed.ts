@@ -2,7 +2,7 @@ export type PageTrackerState<UDATA extends Record<string, unknown> | undefined =
   pageIndex: number;
   referrer: string;
   isFirstPage?: boolean;
-  pageEvent: 'next' | 'back' | 'push' | undefined;
+  pageEvent: 'forward' | 'back' | 'push' | undefined;
   data?: UDATA;
 };
 
