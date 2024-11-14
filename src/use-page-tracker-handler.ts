@@ -104,7 +104,7 @@ const initHistoryState = () => {
         ...history.state,
         ...defaultData,
       },
-      '',
+      location.href,
     );
   } else {
     history.replaceState(defaultData, '');
