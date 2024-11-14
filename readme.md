@@ -85,6 +85,8 @@ export const PageTrackerValue = () => {
 };
 ```
 
+[example](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/examples/next-example)
+
 ## Contributing
 
 Be welcome to contribute! Here's how you can contribute:
