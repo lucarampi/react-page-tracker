@@ -185,6 +185,7 @@ export const PageTrackerValue = () => {
   );
 };
 ```
+[example](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/examples/remix-example)
 
 ## Contributing
 
