@@ -19,10 +19,7 @@
     "strict": true,
     "sourceMap": true,
     "types": ["vite/client", "node", "jest", "@testing-library/jest-dom"],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "baseUrl": "."
   },
   "include": ["src"],
   "exclude": ["node_modules", "dev", "dist"]

@@ -1,9 +1,11 @@
-import { MyComponent } from '../dist/index.min';
+import { PageTracker } from '../src';
+import { router } from './router';
+import { RouterProvider } from '@tanstack/react-router';
 
 export default function App() {
   return (
-    <div>
-      <MyComponent text="hello" />
-    </div>
+    <PageTracker>
+      <RouterProvider router={router} />
+    </PageTracker>
   );
 }

@@ -1,7 +1,7 @@
 {
   "name": "react-page-tracker",
-  "version": "1.0.0",
-  "description": "Tell you which page index the user browsed to after their first visit to the website, and when the user operates the browser's back/forward buttons, also provide how the user reached that page.",
+  "version": "0.1.0",
+  "description": "react-page-tracker is a super lightweight (only 3 KB) and dependency-free React package designed for page tracking. It accurately determines whether the current page is the first or last, fixes incorrect `document.referrer` for precise tracking, and provides a complete `history` browsing record. It also identifies if users navigated via browser back/forward buttons or clicked links. Fully compatible with Next.js, Remix, TanStack Query, and React Router.",
   "scripts": {
     "dev": "vite",
     "build": "tsc && node scripts/minify.js",
@@ -12,7 +12,7 @@
     "react",
     "page-tracker",
     "hooks",
-    "back-and-next button"
+    "track browser's back-and-forward buttons"
   ],
   "author": "Hsuan Yi, Chou",
   "license": "MIT",
@@ -22,11 +22,17 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hsuanyi-chou/react-page-tracker.git"
+  },
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@tanstack/router-devtools": "^1.81.4",
+    "@tanstack/router-plugin": "^1.79.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
@@ -34,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^8.14.0",
     "@typescript-eslint/parser": "^8.14.0",
     "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
     "esbuild": "^0.24.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
@@ -41,7 +48,10 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "jest": "^29.7.0",
+    "postcss": "^8.4.49",
     "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3",
     "vite": "^5.4.11",
     "vite-plugin-dts": "^4.3.0"
