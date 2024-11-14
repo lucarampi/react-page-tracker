@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - main
-    tags:
-      - 'v*.*.*'
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -21,17 +19,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Create Git Tag
-        id: create_tag
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          echo "Current version: $VERSION"
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git tag "v$VERSION"
-          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/hsuanyi-chou/react-page-tracker.git
-          git push origin "v$VERSION"
 
       - name: Build project
         run: npm run build
