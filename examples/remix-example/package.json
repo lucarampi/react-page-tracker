@@ -17,7 +17,7 @@
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-page-tracker": "^0.1.4"
+    "react-page-tracker": "^0.1.6"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.14.0",

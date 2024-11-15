@@ -27,7 +27,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <PageTracker>{children}</PageTracker>
+        <PageTracker />
+        {children}
         <ScrollRestoration />
         <Scripts />
       </body>

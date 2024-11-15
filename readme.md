@@ -46,7 +46,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
     <body>
-+      <PageTracker>{children}</PageTracker>
++      <PageTracker />
+        {children}
     </body>
     </html>
   );
@@ -84,7 +85,7 @@ export const PageTrackerValue = () => {
 };
 ```
 
-[example](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/examples/next-example)
+[Next.js template](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/examples/next-example)
 
 ### Remix
 
@@ -141,7 +142,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-+        <PageTracker>{children}</PageTracker>
++       <PageTracker />
+        {children}
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -185,7 +187,7 @@ export const PageTrackerValue = () => {
   );
 };
 ```
-[example](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/examples/remix-example)
+[Remix template](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/examples/remix-example)
 
 ## Contributing
 

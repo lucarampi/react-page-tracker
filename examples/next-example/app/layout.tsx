@@ -27,7 +27,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <PageTracker>{children}</PageTracker>
+        <PageTracker />
+        {children}
       </body>
     </html>
   );
