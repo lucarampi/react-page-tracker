@@ -8,8 +8,8 @@ const Usage = () => {
       <div className="flex flex-col gap-3">
         <SubTitle>Usage</SubTitle>
         <p>In any client component:</p>
-        <div className="flex items-center justify-between rounded-md border bg-gray-200/30 px-3 py-2 text-gray-800 break-all">
-          const state = usePageTrackerStore((state) => state);
+        <div className="flex items-center justify-between break-all rounded-md border bg-gray-200/30 px-3 py-2 text-gray-800">
+          const state = usePageTrackerStore((state) =&gt; state);
         </div>
         <p>And you will get following values:</p>
         <StoreValue />

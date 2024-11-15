@@ -28,7 +28,7 @@ const Heading = () => {
         </Button>
       </div>
       <Button variant="link" className="-mt-2 text-gray-600" asChild>
-        <Link href="/getting-started">Documentation</Link>
+        <Link href="/docs">Documentation</Link>
       </Button>
     </section>
   );

@@ -1,6 +1,8 @@
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -44,9 +46,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...props}
       />
     ),
-    code: ({ className, ...props }) => (
-      <code className={cn('bg-muted-foreground', className)} {...props} />
-    ),
+    code: ({ className, children, ...props }) => {
+      const language = className?.replace('language-', '') || 'tsx'; // 取得語言類型
+      return (
+        <SyntaxHighlighter language={language} style={dracula}>
+          {children as string}
+        </SyntaxHighlighter>
+      );
+    },
     a: ({ className, ...props }) =>
       props.href?.startsWith('/') ? (
         <Link href={props.href} {...props} className={cn('text-blue-500 underline', className)} />

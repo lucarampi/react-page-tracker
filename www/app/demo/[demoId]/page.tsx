@@ -2,9 +2,9 @@ import React from 'react';
 import StoreValue from '@/app/home-components/store-value';
 import DemoLinks from '@/app/demo/demo-links';
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return Array.from({ length: 20 }).map((_, i) => ({
-    params: { demoId: `${i + 1}` },
+    demoId: `${i + 1}`,
   }));
 }
 
