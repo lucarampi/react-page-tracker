@@ -4,8 +4,9 @@ import { RouterProvider } from '@tanstack/react-router';
 
 export default function App() {
   return (
-    <PageTracker>
+    <>
+      <PageTracker />
       <RouterProvider router={router} />
-    </PageTracker>
+    </>
   );
 }
