@@ -14,13 +14,22 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       />
     ),
     h2: ({ className, ...props }) => (
-      <h2 className={cn('leading-14 my-4 text-3xl lg:text-4xl', className)} {...props} />
+      <h2
+        className={cn('leading-14 my-4 text-3xl text-gray-800 lg:text-4xl', className)}
+        {...props}
+      />
     ),
     h3: ({ className, ...props }) => (
-      <h3 className={cn('my-4 text-2xl leading-10 lg:text-3xl', className)} {...props} />
+      <h3
+        className={cn('my-4 text-2xl leading-10 text-gray-800 lg:text-3xl', className)}
+        {...props}
+      />
     ),
     p: ({ className, ...props }) => (
-      <p className={cn('text-lg font-normal leading-relaxed lg:text-xl', className)} {...props} />
+      <p
+        className={cn('text-lg font-normal leading-relaxed text-gray-800 lg:text-xl', className)}
+        {...props}
+      />
     ),
     hr: ({ className, ...props }) => <hr className={cn('my-3', className)} {...props} />,
     blockquote: ({ className, ...props }) => (

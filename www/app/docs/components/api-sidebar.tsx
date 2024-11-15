@@ -17,7 +17,7 @@ export function ApiSidebar() {
             <Link href="/docs/page-tracker">PageTracker</Link>
           </SidebarMenuButton>
           <SidebarMenuButton asChild>
-            <Link href="/docs/use-page-tracker-store">usePageTrackerStore</Link>
+            <Link href="/docs/use-page-tracker-store">usePageTrackerStore()</Link>
           </SidebarMenuButton>
         </SidebarMenu>
       </SidebarGroupContent>
