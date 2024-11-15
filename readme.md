@@ -1,8 +1,7 @@
 # React Page Tracker
 
-`react-page-tracker` is a react package designed for page tracking. 
-It accurately determines whether the current page is the first or last, fixes incorrect `document.referrer` for precise tracking, and provides a complete `history` browsing record. 
-It also identifies if users navigated via browser back/forward buttons or clicked links. Fully compatible with Next.js, Remix, TanStack Query, and React Router.
+`react-page-tracker` is a lightweight, zero-dependency library providing accurate navigation tracking, fixed
+document.referrer value, and complete history support for React frameworks. Fully compatible with Next.js, Remix, TanStack Query, and React Router.
 
 ## Features
 
@@ -26,7 +25,7 @@ type PageTrackerState = {
   /** whether the current page is the last page */
   isLastPage: boolean;
   /** whether the user navigated to the page via browser back/forward buttons or by clicking a link */
-  pageEvent: PageEvent; // 'back' | 'forward' | 'push'
+  pageEvent?: PageEvent; // 'back' | 'forward' | 'push' | undefined.  undefined for first visit.
   /** history browsing record */
   pageHistory: string[]; // ['/', '/products', '/pdocuts/1', '/products/2', '/about', ...]
 }
