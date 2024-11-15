@@ -85,7 +85,7 @@ export const PageTrackerValue = () => {
 };
 ```
 
-[Next.js template](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/examples/next-example)
+[Next.js template](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/templates/next-example)
 
 ### Remix
 
@@ -187,7 +187,7 @@ export const PageTrackerValue = () => {
   );
 };
 ```
-[Remix template](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/examples/remix-example)
+[Remix template](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/templates/remix-example)
 
 ## Contributing
 
