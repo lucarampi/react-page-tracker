@@ -1,8 +1,9 @@
 'use client';
 import React from 'react';
 import { usePageTrackerStore } from '../../../src';
+import { cn } from '@/lib/utils';
 
-const StoreValue = () => {
+const StoreValue = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
   const state = usePageTrackerStore((state) => state);
 
   const values = Object.entries(state).map(([key, value]) => {
@@ -15,7 +16,13 @@ const StoreValue = () => {
     return `"${key}": ${format(value)}`;
   });
   return (
-    <div className="flex flex-col overflow-auto rounded-md border bg-gray-200/40 px-4 py-3 font-bold">
+    <div
+      className={cn(
+        'flex flex-col overflow-auto rounded-md border bg-gray-200/40 px-4 py-3 font-bold',
+        className,
+      )}
+      {...props}
+    >
       {`{`}
       {values.map((value, index) => (
         <span className="pl-4" key={index}>

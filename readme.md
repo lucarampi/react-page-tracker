@@ -1,7 +1,11 @@
 # React Page Tracker
 
 `react-page-tracker` is a lightweight, zero-dependency library providing accurate navigation tracking, fixed
-document.referrer value, and complete history support for React frameworks. Fully compatible with Next.js, Remix, TanStack Query, and React Router.
+`document.referrer` value, and complete history support for React frameworks. Fully compatible with Next.js, Remix, TanStack Query, and React Router.
+
+👉 [Demo](https://react-page-tracker.typeart.cc/demo)
+
+📖 [Documentation](https://react-page-tracker.typeart.cc)
 
 ## Features
 

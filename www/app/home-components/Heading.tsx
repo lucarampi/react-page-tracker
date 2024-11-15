@@ -15,7 +15,7 @@ const Heading = () => {
       </p>
       <div className="flex gap-3">
         <Button asChild>
-          <Link href="https://github.com/hsuanyi-chou/react-page-tracker">
+          <Link href="/demo">
             <Layers3 />
             Demo
           </Link>
