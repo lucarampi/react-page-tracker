@@ -6,15 +6,15 @@ It also identifies if users navigated via browser back/forward buttons or clicke
 
 ## Features
 
-- Accurately determines whether the current page is the first or last page.
-- Fixes incorrect `document.referrer` after navigation, providing the correct referrer for tracking purposes.
-- Offers a complete history browsing record.
-- Identifies whether the user navigated to the page via browser back/forward buttons or by clicking a link.
-- Supports Next.js, Remix, TanStack Query, and React Router.
-- zero deps.
-- typed-safe.
+- ↔️ Identifies whether the user navigated to the page via browser back/forward buttons or by clicking a link.
+- 🐞 Fixes incorrect `document.referrer` after navigation, providing the correct referrer for tracking purposes.
+- 💡 Accurately determines whether the current page is the first or last page.
+- 🧭 Offers a complete history browsing record.
+- 🚀 Supports Next.js, Remix, TanStack Query, and React Router.
+- ⚡️ zero deps.
+- ⭐️ typed-safe.
 
-### `React Page Tracker` provides the following information
+### Usage
 ```tsx
 type PageTrackerState = {
   /** current page index */
@@ -26,10 +26,15 @@ type PageTrackerState = {
   /** whether the current page is the last page */
   isLastPage: boolean;
   /** whether the user navigated to the page via browser back/forward buttons or by clicking a link */
-  pageEvent: PageEvent;
+  pageEvent: PageEvent; // 'back' | 'forward' | 'push'
   /** history browsing record */
-  pageHistory: string[];
+  pageHistory: string[]; // ['/', '/products', '/pdocuts/1', '/products/2', '/about', ...]
 }
+```
+Simply to get the values you need in any component.
+
+```tsx
+  const { pageIndex, referrer, isFirstPage, isLastPage, pageEvent, pageHistory } = usePageTrackerStore((state) => state);
 ```
 
 ## Installation
