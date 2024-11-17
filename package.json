@@ -13,7 +13,8 @@
     "react",
     "page-tracker",
     "hooks",
-    "track browser's back-and-forward buttons"
+    "track browser's back-and-forward buttons",
+    "Fix document.referrer"
   ],
   "author": "Hsuan Yi, Chou",
   "license": "MIT",
