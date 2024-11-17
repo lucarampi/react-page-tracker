@@ -63,6 +63,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         </SyntaxHighlighter>
       );
     },
+    ul: ({ className, ...props }) => <ul className={cn('pl-4', className)} {...props} />,
+    li: ({ className, ...props }) => (
+      <li
+        className={cn(
+          'list-disc text-lg font-normal leading-relaxed text-gray-800 lg:text-xl',
+          className,
+        )}
+      >
+        {props.children}
+      </li>
+    ),
     a: ({ className, ...props }) =>
       props.href?.startsWith('/') ? (
         <Link href={props.href} {...props} className={cn('text-blue-500 underline', className)} />
