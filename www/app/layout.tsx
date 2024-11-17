@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import { GoogleAnalytics } from '@next/third-parties/google';
+
 import './globals.css';
 import { PageTracker } from '../../src';
 const geistSans = localFont({
@@ -15,8 +17,19 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: 'React Page Tracker',
+  authors: [{ name: 'typeart.cc' }, { url: 'https://blog.typeart.cc/', name: 'Hsuan-Yi, Chou' }],
   description:
-    'react-page-tracker is a react package designed for page tracking. It accurately determines whether the current page is the first or last, fixes incorrect document.referrer for precise tracking, and provides a complete `history` browsing record. It also identifies if users navigated via browser back/forward buttons or clicked links. Fully compatible with Next.js, Remix, TanStack Query, and React Router.',
+    'A lightweight, zero-dependency library providing accurate navigation tracking, fixed document.referrer value, and complete history support for React frameworks.',
+  formatDetection: {
+    telephone: false,
+  },
+  keywords: [
+    'react',
+    'page-tracker',
+    'hooks',
+    "track browser's back-and-forward buttons",
+    'Fix document.referrer',
+  ],
 };
 
 export default function RootLayout({
@@ -26,6 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="G-TJ5CFTJVVC" />
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <PageTracker />
         {children}
