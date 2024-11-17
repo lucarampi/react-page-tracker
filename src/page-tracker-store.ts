@@ -9,6 +9,7 @@ const INITIAL_STATE: PageTrackerState = {
   isFirstPage: true,
   isLastPage: true,
   pageHistory: [],
+  pageHistoryLength: 0,
 };
 
 export const pageTrackerStore = {

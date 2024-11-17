@@ -1,6 +1,7 @@
 import React from 'react';
 import StoreValue from '@/app/home-components/store-value';
 import DemoLinks from '@/app/demo/demo-links';
+import BackForwardButtons from '@/app/demo/[demoId]/back-forward-buttons';
 
 export async function generateStaticParams() {
   return Array.from({ length: 20 }).map((_, i) => ({
@@ -13,6 +14,7 @@ const DemoPage = async ({ params }: { params: Promise<{ demoId: string }> }) => 
   return (
     <div>
       <DemoLinks activeIndex={+demoId} />
+      <BackForwardButtons />
       <h1 className="text-center text-4xl font-bold text-gray-800">Demo {demoId}</h1>
       <p className="text-xl text-gray-800">
         👆Try clicking the browser's back and forward buttons and checking following values!

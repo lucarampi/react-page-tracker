@@ -10,7 +10,7 @@
 ## Features
 
 - 📝 Identifies whether the user navigated to the page via browser back/forward buttons or by clicking a link.
-- 🧩 Works with `History.go`.
+- 🧩 Works with `History.go()`, `history.forward()`, `history.back()`, and `history.pushState()`.
 - 🐞 Fixes incorrect `document.referrer` after navigation, providing the correct referrer for tracking purposes.
 - 💡 Accurately determines whether the current page is the first or last page.
 - 🧭 Offers a complete history browsing record.
@@ -33,6 +33,8 @@ type PageTrackerState = {
   pageEvent?: PageEvent; // 'back' | 'forward' | 'push' | undefined.  undefined for first visit.
   /** history browsing record */
   pageHistory: string[]; // ['/', '/products', '/pdocuts/1', '/products/2', '/about', ...]
+  /** total page history length. When user press `back` button, the `pageHistory`'s end link will become the current link. You may need this total length to handle `history.go(N)` to forward N page. */
+  pageHistoryLength: number;
 }
 ```
 Simply to get the values you need in any component.

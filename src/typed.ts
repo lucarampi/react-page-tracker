@@ -3,7 +3,7 @@ export type PageEvent = 'forward' | 'back' | 'push' | undefined;
 export type PageTrackerState = {
   /** current page index */
   pageIndex: number;
-  /** correct document.referrer */
+  /** correct `document.referrer` */
   referrer: string;
   /** whether the current page is the first page */
   isFirstPage: boolean;
@@ -13,4 +13,6 @@ export type PageTrackerState = {
   pageEvent: PageEvent;
   /** history browsing record */
   pageHistory: string[];
+  /** total page history length */
+  pageHistoryLength: number;
 };
