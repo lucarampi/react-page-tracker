@@ -2,10 +2,12 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Github, Layers3 } from 'lucide-react';
+import { Logo } from '@/app/home-components/logo';
 
 const Heading = () => {
   return (
     <section className="flex flex-col items-center gap-2">
+      <Logo width={72} height={72} />
       <h1 className="text-4xl font-bold text-gray-800">React Page Tracker</h1>
       <p className="mb-4 text-xl text-gray-500 lg:px-40">
         <span>

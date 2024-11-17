@@ -32,7 +32,7 @@ export const usePageTrackerHandler = () => {
         pageIndex: pageIndex.current,
         isFirstPage: pageIndex.current === 0,
         isLastPage: pageIndex.current === visitedTotalLength.current,
-        referrer: state.__REACT_PAGE_TRACKER_INTERNAL__.referrer,
+        referrer: state.__REACT_PAGE_TRACKER_INTERNAL__?.referrer ?? '',
         pageHistory: [...state.__REACT_PAGE_TRACKER_INTERNAL__.pageHistory],
         pageEvent,
       });

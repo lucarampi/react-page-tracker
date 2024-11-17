@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { Logo } from '@/app/home-components/logo';
 
 type DemoLinksProps = {
   activeIndex?: number;
@@ -9,7 +10,11 @@ type DemoLinksProps = {
 const DemoLinks = ({ activeIndex }: DemoLinksProps) => {
   return (
     <div className="border-b-1 mb-3 flex flex-wrap items-center gap-3 border-b pb-4">
-      <Link href="/" className="text-lg font-bold hover:underline hover:underline-offset-2">
+      <Link
+        href="/"
+        className="flex items-center gap-1 text-lg font-bold hover:underline hover:underline-offset-2"
+      >
+        <Logo width={32} height={32} />
         React Page Tracker
       </Link>
       <span className="text-gray-400">|</span>
