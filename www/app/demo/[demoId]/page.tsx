@@ -2,6 +2,7 @@ import React from 'react';
 import StoreValue from '@/app/home-components/store-value';
 import DemoLinks from '@/app/demo/demo-links';
 import BackForwardButtons from '@/app/demo/[demoId]/back-forward-buttons';
+import AdDemoBottom from '@/components/ad/ad-demo-bottom';
 
 export async function generateStaticParams() {
   return Array.from({ length: 20 }).map((_, i) => ({
@@ -20,6 +21,7 @@ const DemoPage = async ({ params }: { params: Promise<{ demoId: string }> }) => 
         👆Try clicking the browser's back and forward buttons and checking following values!
       </p>
       <StoreValue className="mt-5" />
+      <AdDemoBottom />
     </div>
   );
 };

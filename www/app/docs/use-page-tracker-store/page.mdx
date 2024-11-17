@@ -1,3 +1,5 @@
+import AdDocBottom from '../../../components/ad/ad-doc-bottom';
+
 # usePageTrackerStore()
 
 usePageTrackerStore() can retrieve the required parameters and also allows you to select the needed parameters through state to avoid multiple re-renders of the component in React. following is the return type:
@@ -16,6 +18,12 @@ type PageTrackerState = {
   pageEvent?: PageEvent; // 'back' | 'forward' | 'push' | undefined.  undefined for first visit.
   /** history browsing record */
   pageHistory: string[]; // ['/', '/products', '/pdocuts/1', '/products/2', '/about', ...]
+  /**
+   * total page history length.
+   * When user press `back` button, the `pageHistory`'s end link will become the current link.
+   * You may need this total length to handle `history.go(N)` to forward N page.
+   */
+  pageHistoryLength: number;
 }
 ```
 
@@ -48,3 +56,5 @@ export const PageTrackerValue = () => {
   );
 };
 ```
+
+<AdDocBottom />

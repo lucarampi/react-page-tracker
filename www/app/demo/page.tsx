@@ -2,6 +2,7 @@ import StoreValue from '../home-components/store-value';
 import DemoLinks from './demo-links';
 
 import React from 'react';
+import AdDemoBottom from '@/components/ad/ad-demo-bottom';
 
 const DemoHome = () => {
   return (
@@ -16,6 +17,7 @@ const DemoHome = () => {
       </div>
 
       <StoreValue className="mt-5" />
+      <AdDemoBottom />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import Heading from '@/app/home-components/Heading';
 import Installation from '@/app/home-components/installation';
 import Usage from '@/app/home-components/usage';
+import AdLandingBottom from '@/components/ad/ad-landing-bottom';
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Heading />
       <Installation />
       <Usage />
+      <AdLandingBottom />
     </main>
   );
 }

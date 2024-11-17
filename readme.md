@@ -33,8 +33,11 @@ type PageTrackerState = {
   pageEvent?: PageEvent; // 'back' | 'forward' | 'push' | undefined.  undefined for first visit.
   /** history browsing record */
   pageHistory: string[]; // ['/', '/products', '/pdocuts/1', '/products/2', '/about', ...]
-  /** total page history length. When user press `back` button, the `pageHistory`'s end link will become the current link. You may need this total length to handle `history.go(N)` to forward N page. */
-  pageHistoryLength: number;
+  /**
+   * total page history length.
+   * When user press `back` button, the `pageHistory`'s end link will become the current link.
+   * You may need this total length to handle `history.go(N)` to forward N page.
+   */  pageHistoryLength: number;
 }
 ```
 Simply to get the values you need in any component.
