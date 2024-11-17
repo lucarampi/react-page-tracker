@@ -213,7 +213,7 @@ Be welcome to contribute! Here's how you can contribute:
 <a href="https://github.com/hsuanyi-chou/react-page-tracker/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=hsuanyi-chou/react-page-tracker" />
 </a>
-</br>
+<br />
 <sub>
   Built by <a href="https://github.com/hsuanyi-chou">Hsuan Yi, Chou</a>
 </sub>
