@@ -22,6 +22,12 @@
 - ⚡️ zero deps.
 - ⭐️ typed-safe.
 
+### development
+
+In development mode, React's StrictMode executes components twice, resulting in two entries in the history data,
+Which means `pageHistory` will look like: `['/', '/products', '/products', '/products/1', '/products/1']` and the `pageHistoryLength` will be `5`.
+However, after deployment, it behaves normally.
+
 ### Usage
 ```tsx
 type PageTrackerState = {
@@ -41,7 +47,8 @@ type PageTrackerState = {
    * total page history length.
    * When user press `back` button, the `pageHistory`'s end link will become the current link.
    * You may need this total length to handle `history.go(N)` to forward N page.
-   */  pageHistoryLength: number;
+   */  
+  pageHistoryLength: number;
 }
 ```
 Simply to get the values you need in any component.
