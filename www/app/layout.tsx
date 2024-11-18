@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     "track browser's back-and-forward buttons",
     'Fix document.referrer',
   ],
+  other: {
+    'google-site-verification': 'q2TjtYRJbnG5q8Am34DYea1AL_VmYHOUOLlKQGgamGQ',
+  },
 };
 
 export default function RootLayout({
