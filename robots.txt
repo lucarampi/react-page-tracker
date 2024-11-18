@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://react-page-tracker.typeart.cc
+
+# Sitemaps
+Sitemap: https://react-page-tracker.typeart.cc/sitemap.xml
