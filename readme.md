@@ -7,7 +7,6 @@
 `react-page-tracker` is a lightweight, zero-dependency library providing accurate navigation tracking, fixed
 `document.referrer` value, and complete history support for React frameworks. Fully compatible with Next.js, Remix, TanStack Query, and React Router.
 
-(🚧 Currently encounters DNS issue, still working on it. 🚧 )
 👉 [Demo](https://react-page-tracker.typeart.cc/demo)
 
 📖 [Documentation](https://react-page-tracker.typeart.cc)
@@ -63,7 +62,7 @@ Simply to get the values you need in any component.
 npm install react-page-tracker
 ```
 
-<details><summary>▲ Next.js</summary>
+<details><summary> ▲ Next.js</summary>
 
 `layout.tsx`
 
@@ -115,10 +114,12 @@ export const PageTrackerValue = () => {
 [Next.js template](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/templates/next-example)
 </details>
 
-<details><summary>💿 Remix</summary>
+<details><summary> 🆁 Remix</summary>
 
 force Vite to build to CommonJS
+
 `vite.config.ts`
+
 ```diff
 export default defineConfig({
 +  ssr: {
