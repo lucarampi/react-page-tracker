@@ -54,9 +54,7 @@ Simply to get the values you need in any component.
 ```bash
 npm install react-page-tracker
 ```
-
-### Next.js
-
+<details><summary>▲ Next.js</summary>
 `layout.tsx`
 ```diff
 + import { PageTracker } from 'react-page-tracker';
@@ -104,8 +102,9 @@ export const PageTrackerValue = () => {
 ```
 
 [Next.js template](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/templates/next-example)
+</details>
 
-### Remix
+<details><summary>💿 Remix</summary>
 
 force Vite to build to CommonJS
 `vite.config.ts`
@@ -206,6 +205,7 @@ export const PageTrackerValue = () => {
 };
 ```
 [Remix template](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/templates/remix-example)
+</details>
 
 ## Contributing
 
