@@ -11,7 +11,7 @@ export type HistoryCustomState = {
 export const usePageTrackerHandler = () => {
   const pageIndex = useRef(0);
   // for isLastPage usage
-  const visitedTotalLength = useRef(0);
+  const visitedTotalLength = useRef(1);
 
   useEffect(() => {
     initHistoryState();
@@ -28,12 +28,14 @@ export const usePageTrackerHandler = () => {
       } else {
         pageIndex.current = statePageIndex ?? 0;
       }
+      const pageHistory = [...(state.__REACT_PAGE_TRACKER_INTERNAL__?.pageHistory || [])];
       pageTrackerStore.setState({
         pageIndex: pageIndex.current,
         isFirstPage: pageIndex.current === 0,
-        isLastPage: pageIndex.current === visitedTotalLength.current,
-        referrer: state.__REACT_PAGE_TRACKER_INTERNAL__.referrer,
-        pageHistory: [...state.__REACT_PAGE_TRACKER_INTERNAL__.pageHistory],
+        isLastPage: pageHistory.length === visitedTotalLength.current,
+        referrer: state.__REACT_PAGE_TRACKER_INTERNAL__?.referrer ?? '',
+        pageHistory,
+        pageHistoryLength: visitedTotalLength.current,
         pageEvent,
       });
     };
@@ -47,13 +49,14 @@ export const usePageTrackerHandler = () => {
     history.pushState = (state: unknown, title: string, url: string) => {
       const newPageIndex = (history.state.__REACT_PAGE_TRACKER_INTERNAL__?.pageIndex ?? 0) + 1;
       pageIndex.current = newPageIndex;
-      visitedTotalLength.current = newPageIndex;
       const newPageHistory = pageTrackerStore.getImmutablePageHistory();
       newPageHistory.push(url);
+      visitedTotalLength.current = newPageHistory.length;
       const newState = {
         pageIndex: newPageIndex,
         referrer: window.location.href,
         pageHistory: newPageHistory,
+        pageHistoryLength: visitedTotalLength.current,
       };
 
       const stateWithPageInfo: HistoryCustomState = {
@@ -95,6 +98,7 @@ const initHistoryState = () => {
       pageIndex: 0,
       referrer: document.referrer,
       pageHistory: [window.location.pathname],
+      pageHistoryLength: 1,
     } as Partial<PageTrackerState>,
   };
 

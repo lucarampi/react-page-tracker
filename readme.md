@@ -1,18 +1,32 @@
 # React Page Tracker
 
-`react-page-tracker` is a react package designed for page tracking. 
-It accurately determines whether the current page is the first or last, fixes incorrect `document.referrer` for precise tracking, and provides a complete `history` browsing record. 
-It also identifies if users navigated via browser back/forward buttons or clicked links. Fully compatible with Next.js, Remix, TanStack Query, and React Router.
+<p align="center">
+  <a href="https://react-page-tracker.typeart.cc" target="blank"><img src="https://raw.githubusercontent.com/hsuanyi-chou/react-page-tracker/refs/heads/main/www/public/logo.svg" width="120" alt="react-page-tracker Logo" /></a>
+</p>
+
+`react-page-tracker` is a lightweight, zero-dependency library providing accurate navigation tracking, fixed
+`document.referrer` value, and complete history support for React frameworks. Fully compatible with Next.js, Remix, TanStack Query, and React Router.
+
+👉 [Demo](https://react-page-tracker.typeart.cc/demo)
+
+📖 [Documentation](https://react-page-tracker.typeart.cc)
 
 ## Features
 
-- ↔️ Identifies whether the user navigated to the page via browser back/forward buttons or by clicking a link.
+- 📝 Identifies whether the user navigated to the page via browser back/forward buttons or by clicking a link.
+- 🧩 Works with `History.go()`, `history.forward()`, `history.back()`, and `history.pushState()`.
 - 🐞 Fixes incorrect `document.referrer` after navigation, providing the correct referrer for tracking purposes.
 - 💡 Accurately determines whether the current page is the first or last page.
 - 🧭 Offers a complete history browsing record.
 - 🚀 Supports Next.js, Remix, TanStack Query, and React Router.
 - ⚡️ zero deps.
 - ⭐️ typed-safe.
+
+### development
+
+In development mode, React's StrictMode executes components twice, resulting in two entries in the history data,
+Which means `pageHistory` will look like: `['/', '/products', '/products', '/products/1', '/products/1']` and the `pageHistoryLength` will be `5`.
+However, after deployment, it behaves normally.
 
 ### Usage
 ```tsx
@@ -26,9 +40,15 @@ type PageTrackerState = {
   /** whether the current page is the last page */
   isLastPage: boolean;
   /** whether the user navigated to the page via browser back/forward buttons or by clicking a link */
-  pageEvent: PageEvent; // 'back' | 'forward' | 'push'
+  pageEvent?: PageEvent; // 'back' | 'forward' | 'push' | undefined.  undefined for first visit.
   /** history browsing record */
   pageHistory: string[]; // ['/', '/products', '/pdocuts/1', '/products/2', '/about', ...]
+  /**
+   * total page history length.
+   * When user press `back` button, the `pageHistory`'s end link will become the current link.
+   * You may need this total length to handle `history.go(N)` to forward N page.
+   */  
+  pageHistoryLength: number;
 }
 ```
 Simply to get the values you need in any component.
@@ -41,9 +61,7 @@ Simply to get the values you need in any component.
 ```bash
 npm install react-page-tracker
 ```
-
-### Next.js
-
+<details><summary>▲ Next.js</summary>
 `layout.tsx`
 ```diff
 + import { PageTracker } from 'react-page-tracker';
@@ -91,8 +109,9 @@ export const PageTrackerValue = () => {
 ```
 
 [Next.js template](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/templates/next-example)
+</details>
 
-### Remix
+<details><summary>💿 Remix</summary>
 
 force Vite to build to CommonJS
 `vite.config.ts`
@@ -193,6 +212,7 @@ export const PageTrackerValue = () => {
 };
 ```
 [Remix template](https://github.com/hsuanyi-chou/react-page-tracker/tree/main/templates/remix-example)
+</details>
 
 ## Contributing
 
@@ -204,10 +224,13 @@ Be welcome to contribute! Here's how you can contribute:
 <a href="https://github.com/hsuanyi-chou/react-page-tracker/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=hsuanyi-chou/react-page-tracker" />
 </a>
-</br>
+<br />
 <sub>
   Built by <a href="https://github.com/hsuanyi-chou">Hsuan Yi, Chou</a>
 </sub>
+
+[![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/typeart)
+
 
 ## License
 

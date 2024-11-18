@@ -1,7 +1,7 @@
 {
   "name": "react-page-tracker",
-  "version": "0.1.7",
-  "description": "react-page-tracker is a super lightweight (only 3 KB) and dependency-free React package designed for page tracking. It accurately determines whether the current page is the first or last, fixes incorrect `document.referrer` for precise tracking, and provides a complete `history` browsing record. It also identifies if users navigated via browser back/forward buttons or clicked links. Fully compatible with Next.js, Remix, TanStack Query, and React Router.",
+  "version": "0.2.0",
+  "description": "A lightweight, zero-dependency library providing accurate navigation tracking, fixed document.referrer value, and complete history support for React frameworks.",
   "scripts": {
     "dev": "vite",
     "build": "tsc && node scripts/minify.js",
@@ -13,7 +13,8 @@
     "react",
     "page-tracker",
     "hooks",
-    "track browser's back-and-forward buttons"
+    "track browser's back-and-forward buttons",
+    "Fix document.referrer"
   ],
   "author": "Hsuan Yi, Chou",
   "license": "MIT",

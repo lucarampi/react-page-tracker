@@ -1,3 +1,4 @@
+'use client';
 import { useSyncExternalStore } from 'react';
 import { PageTrackerState } from './typed';
 
@@ -8,6 +9,7 @@ const INITIAL_STATE: PageTrackerState = {
   isFirstPage: true,
   isLastPage: true,
   pageHistory: [],
+  pageHistoryLength: 0,
 };
 
 export const pageTrackerStore = {
