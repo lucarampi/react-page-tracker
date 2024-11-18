@@ -1,5 +1,9 @@
 # React Page Tracker
 
+<p align="center">
+  <a href="https://react-page-tracker.typeart.cc" target="blank"><img src="https://raw.githubusercontent.com/hsuanyi-chou/react-page-tracker/refs/heads/main/www/public/logo.svg" width="120" alt="react-page-tracker Logo" /></a>
+</p>
+
 `react-page-tracker` is a lightweight, zero-dependency library providing accurate navigation tracking, fixed
 `document.referrer` value, and complete history support for React frameworks. Fully compatible with Next.js, Remix, TanStack Query, and React Router.
 
@@ -217,6 +221,9 @@ Be welcome to contribute! Here's how you can contribute:
 <sub>
   Built by <a href="https://github.com/hsuanyi-chou">Hsuan Yi, Chou</a>
 </sub>
+
+[![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/typeart)
+
 
 ## License
 
