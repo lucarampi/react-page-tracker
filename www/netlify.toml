@@ -1,9 +1,12 @@
 [build]
-command = "npm i --force && npm run build"
+command = "npm run build"
 publish = "www/out"
 
 [[plugins]]
 package = "@netlify/plugin-nextjs"
 
 [build.environment]
+NPM_FLAGS = "--force"
 NETLIFY_NEXT_PLUGIN_SKIP = "true"
+[build.cache]
+node_modules = false
