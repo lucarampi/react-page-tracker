@@ -22,12 +22,6 @@
 - ⚡️ zero deps.
 - ⭐️ typed-safe.
 
-### development
-
-In development mode, React's StrictMode executes components twice, resulting in two entries in the history data,
-Which means `pageHistory` will look like: `['/', '/products', '/products', '/products/1', '/products/1']` and the `pageHistoryLength` will be `5`.
-However, after deployment, it behaves normally.
-
 ### Usage
 ```tsx
 type PageTrackerState = {
@@ -72,7 +66,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
     <body>
-+      <PageTracker />
++      <PageTracker /> // next 14, there's an auto detection. A better way is to follow your environment. e,g. `enableStrictModeHandler={process.env.NODE_ENV === 'local'}`
++      <PageTracker enableStrictModeHandler={false} /> // next 15+. always be false
         {children}
     </body>
     </html>
@@ -80,7 +75,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 }
 ```
 
-You are all set up! Now you can access the page tracking information in any component.
+If you are using `nextjs 15`, you have to set `enableStrictModeHandler` to `false`
+ 
+In `nextjs 14`, strict mode will execute twice when push a page (e,g. click an Anchor link) which may cause `pageHistory` values error and hard to handle in development mode.
+
+But in remix, tanstack/query, react-router, it will not execute twice. works fine.
+
+There's an automatic detection for nextjs strict mode, so you don't need to set this prop.
+
+But I can't detect 14 or 15, so you have to set this prop to `false` in next 15.
+
+PS: DO NOT set `enableStrictModeHandler` to `true` in production, it may cause issues.
+
+
+**You are all set up! Now you can access the page tracking information in any component.**
 
 `component.tsx`
 ```tsx
@@ -186,7 +194,7 @@ export default function App() {
 
 ```
 
-You are all set up! Now you can access the page tracking information in any component.
+**You are all set up! Now you can access the page tracking information in any component.**
 
 `component.tsx`
 ```tsx
