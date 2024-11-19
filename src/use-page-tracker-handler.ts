@@ -144,7 +144,7 @@ const initHistoryState = () => {
     __REACT_PAGE_TRACKER_INTERNAL__: {
       pageIndex: 0,
       referrer: document.referrer,
-      pageHistory: [window.location.pathname],
+      pageHistory: [location.href.replace(location.origin, '')],
       pageHistoryLength: 1,
     } as Partial<PageTrackerState>,
   };
