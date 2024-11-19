@@ -27,18 +27,23 @@ const DemoLinks = ({ activeIndex }: DemoLinksProps) => {
       >
         Demo Home
       </Link>
-      {Array.from({ length: 20 }).map((_, i) => (
-        <Link
-          href={`/demo/${i + 1}`}
-          key={i + 1}
-          className={cn(
-            'underline underline-offset-2',
-            activeIndex === i + 1 && 'font-bold text-blue-400',
-          )}
-        >
-          {i + 1}
-        </Link>
-      ))}
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-wrap gap-3">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <Link
+              href={`/demo/${i + 1}${(i + 1) % 2 === 0 ? `?query=${i + 1}` : ''}`}
+              key={i + 1}
+              className={cn(
+                'underline underline-offset-2',
+                activeIndex === i + 1 && 'font-bold text-blue-400',
+              )}
+            >
+              {i + 1}
+            </Link>
+          ))}
+        </div>
+        <div>Even-numbered links will include a query string.</div>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 {
   "name": "react-page-tracker",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A lightweight, zero-dependency library providing accurate navigation tracking, fixed document.referrer value, and complete history support for React frameworks.",
   "scripts": {
     "dev": "vite",
@@ -30,6 +30,7 @@
       "require": "./dist/index.js"
     }
   },
+  "homepage": "https://react-page-tracker.typeart.cc/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hsuanyi-chou/react-page-tracker.git"

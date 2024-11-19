@@ -2,23 +2,27 @@
 import { useEffect, useRef } from 'react';
 import { PageTrackerState } from './typed';
 import { pageTrackerStore } from './page-tracker-store';
+import { PageTrackerProps } from './page-tracker';
 
 const DEBUG = false;
 export type HistoryCustomState = {
   __REACT_PAGE_TRACKER_INTERNAL__: Pick<PageTrackerState, 'pageIndex' | 'referrer' | 'pageHistory'>;
 };
 
-export const usePageTrackerHandler = () => {
+export const usePageTrackerHandler = ({ enableStrictModeHandler }: PageTrackerProps) => {
+  const { initStrictModeDetector, strictModeDetector } = useStrictModeDetector({
+    enableStrictModeHandler,
+  });
+
   const pageIndex = useRef(0);
   // for isLastPage usage
   const visitedTotalLength = useRef(1);
 
   useEffect(() => {
     initHistoryState();
+    initStrictModeDetector();
 
-    /**
-     * 處理 user 操作原生上、下一頁或頁面上自行加入的返回鍵時
-     **/
+    /** Handle user operate original back/forward button or history.go()/back()/forward() or framework routing. **/
     const handlePopState = (event: PopStateEvent) => {
       const state = event.state as HistoryCustomState;
       const statePageIndex = state.__REACT_PAGE_TRACKER_INTERNAL__?.pageIndex ?? 0;
@@ -47,6 +51,9 @@ export const usePageTrackerHandler = () => {
     // override popState, pushState
     window.onpopstate = handlePopState;
     history.pushState = (state: unknown, title: string, url: string) => {
+      if (strictModeDetector()) {
+        return originalPushState(state, title, url);
+      }
       const newPageIndex = (history.state.__REACT_PAGE_TRACKER_INTERNAL__?.pageIndex ?? 0) + 1;
       pageIndex.current = newPageIndex;
       const newPageHistory = pageTrackerStore.getImmutablePageHistory();
@@ -86,6 +93,46 @@ export const usePageTrackerHandler = () => {
   }, []);
 };
 
+const useStrictModeDetector = ({ enableStrictModeHandler }: PageTrackerProps) => {
+  const counterRef = useRef(0);
+  const isStrictMode = useRef(false);
+
+  const isNextjs = () => {
+    return !!history.state.__PRIVATE_NEXTJS_INTERNALS_TREE;
+  };
+
+  const detectorHandler = () => {
+    counterRef.current++;
+    if (isStrictMode.current) {
+      return counterRef.current % 2 === 0;
+    }
+    return false;
+  };
+
+  return {
+    initStrictModeDetector: () => {
+      counterRef.current++;
+      if (counterRef.current === 2) {
+        isStrictMode.current = true;
+      }
+    },
+    strictModeDetector: () => {
+      if (enableStrictModeHandler === undefined) {
+        if (isNextjs()) {
+          return detectorHandler();
+        }
+        // if not Nextjs, we don't need to handle strict mode.
+        return false;
+      }
+
+      if (enableStrictModeHandler) {
+        return detectorHandler();
+      }
+      return false;
+    },
+  };
+};
+
 const debugLog = (message: string) => {
   if (DEBUG) {
     console.debug(`[DEBUG PAGE CHANGE] ${message}`);
@@ -97,7 +144,7 @@ const initHistoryState = () => {
     __REACT_PAGE_TRACKER_INTERNAL__: {
       pageIndex: 0,
       referrer: document.referrer,
-      pageHistory: [window.location.pathname],
+      pageHistory: [location.href.replace(location.origin, '')],
       pageHistoryLength: 1,
     } as Partial<PageTrackerState>,
   };
