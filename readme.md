@@ -11,6 +11,9 @@
 
 📖 [Documentation](https://react-page-tracker.typeart.cc)
 
+
+🚀 [An awesome use case: Magic Back Button in shadcn/ui expansions](https://shadcnui-expansions.typeart.cc/docs/magic-back-button)
+
 ## Features
 
 - 📝 Identifies whether the user navigated to the page via browser back/forward buttons or by clicking a link.
