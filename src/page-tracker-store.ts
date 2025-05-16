@@ -45,6 +45,13 @@ export const pageTrackerStore = {
   },
 };
 
+/**
+ * get PageTrackerStore in any function.
+ **/
+export const getPageTrackerStore = () => {
+  return pageTrackerStore.getState();
+};
+
 export const usePageTrackerStore = <T>(selector: (state: PageTrackerState) => T): T => {
   let lastSelected: T;
 
