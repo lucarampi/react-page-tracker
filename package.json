@@ -1,6 +1,6 @@
 {
   "name": "react-page-tracker",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "A lightweight, zero-dependency library providing accurate navigation tracking, fixed document.referrer value, and complete history support for React frameworks.",
   "scripts": {
     "dev": "vite",

@@ -59,6 +59,6 @@ export const usePageTrackerStore = <T>(selector: (state: PageTrackerState) => T)
       }
       return lastSelected;
     },
-    () => INITIAL_STATE as T,
+    () => selector(pageTrackerStore.getState()) as T,
   );
 };
