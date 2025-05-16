@@ -18,7 +18,7 @@
 
 - 📝 Identifies whether the user navigated to the page via browser back/forward buttons or by clicking a link.
 - 🧩 Works with `History.go()`, `history.forward()`, `history.back()`, and `history.pushState()`.
-- 🐞 Fixes incorrect `document.referrer` after navigation, providing the correct referrer for tracking purposes.
+- 🐞 Fixes incorrect `document.referrer` after navigation, providing the correct referrer.
 - 💡 Accurately determines whether the current page is the first or last page.
 - 🧭 Offers a complete history browsing record.
 - 🚀 Supports Next.js, Remix, TanStack Query, and React Router.
